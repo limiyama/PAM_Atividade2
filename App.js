@@ -19,28 +19,29 @@ export default function App() {
 
   return (
     <View style = {styles.container}>
-      <View style = {styles.bloco}>
-        <Text style = {styles.textBlock}> Valor do litro do álcool: </Text>
-        <TextInput style = {styles.input} keyboardType="numeric" value={alcool} onChangeText={(texto)=>setValor1(texto)} />
-      </View>
+      <View style = {styles.linha}>
+        <View style = {styles.coluna}>
+          <Text style = {styles.texto}> Valor do litro do álcool: </Text>
+          <TextInput style = {styles.input} keyboardType="numeric" value={alcool} onChangeText={(texto)=>setValor1(texto)} />
+        </View>
 
-      <View style = {styles.bloco}>
-          <Text style = {styles.textBlock}> Valor do litro da gasolina: </Text>
+        <View style = {styles.coluna}>
+          <Text style = {styles.texto}> Valor do litro da gasolina: </Text>
           <TextInput style = {styles.input} keyboardType = "numeric" value = {gasolina} onChangeText={(texto)=>setValor2(texto)} />
+        </View>
       </View>
-
-      <View style = {styles.bloco}>
-        <TouchableOpacity style = {styles.button} onPress = {calcular}>
-          <Text style = {styles.textButton}> Calcular </Text>
+    <View>
+        <TouchableOpacity style = {styles.botao} onPress = {calcular}>
+          <Text style = {styles.texto}> Calcular </Text>
         </TouchableOpacity>
       </View>
 
-      <View style = {styles.bloco}> 
-        <Text style = {styles.textoBloco}> Resultado: {resultado} </Text>
+      <View> 
+        <Text style = {styles.texto}> Valor da divisão: {resultado} </Text>
       </View>
 
-      <View style = {styles.bloco}> 
-        <Text style = {styles.textoBloco}> {resposta} </Text>
+      <View> 
+        <Text style = {styles.texto}> {resposta} </Text>
       </View>
     </View>
   );
@@ -48,55 +49,40 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  textoBloco: {
-  fontSize: 20,
-  marginTop : 10,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  },
-
-  texto:{
-    color: '#00FFF',
-    fontSize: 30,
-    marginTop: 15,
-  }, 
-
-  bloco: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 30,
+    fontFamily: 'Arial',
     width: '100%',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fdd4db'
   },
+
   input: {
-    borderColor: '#000',
+    borderRadius: 12,
+    borderColor: '#ffafcc',
     borderWidth: 2,
-    fontSize: 20,
-    width: '80%',
-    color: '#000',
-    padding: 15
+    padding: 5,
+    margin: 5
   },
-  textBlock: {
-    color: '#000',
-    fontSize: 20,
+
+  coluna: {
+    marginLeft: 15,
+  },
+
+  linha: {
+    flexDirection: 'row',
     margin: 10
   },
-  button: {
-    textAlign: 'center',
-    backgroundColor: '#FDDDDE',
-    width: '80%',
-    borderRadius: 5,
-    padding: 15,
-    margin: 15 },
-  textButton: {
-    color: '#000',
-    fontSize: 20,
-  }
+
+  texto: {
+    fontSize: 16,
+  },
+
+  botao: {
+    backgroundColor: '#ffafcc',
+    borderRadius: 12,
+    padding: 10,
+    marginBottom: 5,
+  },
 });
