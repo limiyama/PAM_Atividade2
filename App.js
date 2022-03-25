@@ -6,11 +6,10 @@ export default function App() {
   const [alcool, setValor1] = useState();
   const [gasolina, setValor2] = useState();
   const [resposta, setResposta] = useState();
-  const [resultado, setResultado] = useState(0);
 
   function calcular(){
-    setResultado(parseFloat(alcool) / parseFloat(gasolina));
-    if (resultado >= 0.7) {
+    let resultado = parseFloat(alcool) / parseFloat(gasolina));
+    if (resultado < 0.7) {
       setResposta("É mais vantajoso abastecer com álcool.");
     } else {
       setResposta("É mais vantajoso abastecer com gasolina.");
@@ -34,10 +33,6 @@ export default function App() {
         <TouchableOpacity style = {styles.botao} onPress = {calcular}>
           <Text style = {styles.texto}> Calcular </Text>
         </TouchableOpacity>
-      </View>
-
-      <View> 
-        <Text style = {styles.texto}> Valor da divisão: {resultado} </Text>
       </View>
 
       <View> 
